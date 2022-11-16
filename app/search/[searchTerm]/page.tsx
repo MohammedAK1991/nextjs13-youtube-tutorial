@@ -21,16 +21,13 @@ async function search(searchTerm: string) {
 
 export default async function SearchPage({
   params,
-  searchParams,
 }: {
   params: { searchTerm: string };
-  searchParams: { id: string };
 }) {
   const searchResults = await search(params.searchTerm);
   return (
     <>
       <p className="p-2">You searched for{params.searchTerm}</p>
-      <p>{searchParams.id}</p>
       <ol className="space-y-5 p-5">
         {searchResults.organic_results.map((result) => (
           <li key={result.position} className="list-disc">
